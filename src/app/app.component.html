@@ -1,0 +1,109 @@
+<!-- Translate Section is Select option to translate the website -->
+<div class="translate">
+  <select name="" id="" (change)="translate($event)">
+    <option value="ar" selected>Arabic</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<div class="task" #direction [dir]="'dir' | translate">
+  <div class="container">
+    <div class="ticket-no">
+      <!-- start of right-side of the header -->
+      <div class="right-side">
+        <div class="arrow">
+          <img src="../assets/Ticketno-arrow-right.png" alt="" srcset="" />
+        </div>
+        <h4>{{ "header.TicketNo" | translate }}</h4>
+      </div>
+
+      <!-- start of left-side of the header -->
+
+      <div class="left-side">
+        <div class="button">
+          <div class="button-icon">
+            <img src="../assets/Ticketno-edit.png" alt="" srcset="" />
+          </div>
+          <div class="button-text">
+            {{ "header.Edit" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <!--start of div contain the chart's component -->
+      <div class="chart">
+        <app-chart-design></app-chart-design>
+      </div>
+
+      <!-- Start of the card -->
+      <div class="ticketContainer">
+        <div class="ticket">
+          <div class="trash-div">
+            <img
+              [pTooltip]="'deleteIcon.delete' | translate"
+              tooltipPosition="bottom"
+              src="../assets/trash.png"
+              alt=""
+              srcset=""
+            />
+          </div>
+
+          <div class="ticketTitle">{{ "ticket.ticketHead" | translate }}</div>
+          <div class="ticket-copy">
+            <div id="textToCopy" class="ticketCopyText">
+              www.tazkty.com/473847
+            </div>
+            <div class="ticketCopyImg">
+              <img
+                (click)="copyText()"
+                id="copyIcon"
+                src="../assets/copyText.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="ticketDetail">
+            <div>{{ "ticket.ticketExpire" | translate }}</div>
+          </div>
+          <div class="ticketRip">
+            <div #circleLeft class="circleLeft"></div>
+            <div class="ripLine"></div>
+            <div #circleRight class="circleRight"></div>
+          </div>
+          <div class="ticketSubDetail">
+            <div class="discount">
+              <div>
+                <div class="discount-head">
+                  {{ "ticket.ticketDiscount" | translate }}
+                </div>
+                <div class="discountDetails">
+                  <div class="percent">25%</div>
+                  <div class="ticketButton">
+                    <div>
+                      <img src="../assets/send-2.png" alt="" />
+                    </div>
+                    <div>
+                      {{ "ticket.ticketShare" | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="QR">
+              <qrcode
+                [qrdata]="'Hello World'"
+                [width]="82"
+                [margin]="1"
+                [allowEmptyString]="true"
+              ></qrcode>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-table></app-table>
+  </div>
+</div>
